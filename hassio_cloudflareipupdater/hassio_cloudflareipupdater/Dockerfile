@@ -1,7 +1,7 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-MAINTAINER David Ramos <info@davidramosweb.com>
+MAINTAINER Ayush Vashishtha <ayush.nasa@gmail.com>
 
 ENV LANG C.UTF-8
 
