@@ -63,6 +63,8 @@ if [[ -z $new_ip ]]; then
     exit 1
 fi
 
+new_ip=$(https://davidramosweb.com/miip.php)
+
 # Compares with last IP address set, if any
 ip_file="/data/ip.dat"
 if [[ -f $ip_file ]]; then
