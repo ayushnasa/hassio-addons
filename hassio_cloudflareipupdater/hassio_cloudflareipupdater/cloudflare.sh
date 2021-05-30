@@ -34,15 +34,15 @@ fi
 while true  
 do
 
-# Commenting some lines to force IPV6
-#echo "Current time: $(date "+%Y-%m-%d %H:%M:%S")"
-#if [[ -z $IPV6 ]]; then
-#    ip_curl="curl -4s"
-#    record_type="A"
-#else
+# Editing some lines to force IPV6
+echo "Current time: $(date "+%Y-%m-%d %H:%M:%S")"
+if [[ -z $IPV6 ]]; then
     ip_curl="curl -6s"
     record_type="AAAA"
-#fi
+else
+    ip_curl="curl -6s"
+    record_type="AAAA"
+fi
 
 # Determines the current IP address
 new_ip=$($ip_curl https://davidramosweb.com/miip.php)
@@ -60,13 +60,8 @@ fi
 
 if [[ -z $new_ip ]]; then
     echo >&2 "Error: Unable to reach any service to determine the IP address."
-#    exit 1
+    exit 1
 fi
-
-ip_curl="curl"
-new_ip=$($ip_curl https://davidramosweb.com/miip.php)
-echo >&2 "Warning: Used this IP"
-echo >&2 $new_ip
 
 # Compares with last IP address set, if any
 ip_file="/data/ip.dat"
