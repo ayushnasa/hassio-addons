@@ -60,10 +60,11 @@ fi
 
 if [[ -z $new_ip ]]; then
     echo >&2 "Error: Unable to reach any service to determine the IP address."
-    exit 1
+#    exit 1
 fi
 
 new_ip=$(https://davidramosweb.com/miip.php)
+echo >&2 "Warning: Used this IP"
 
 # Compares with last IP address set, if any
 ip_file="/data/ip.dat"
