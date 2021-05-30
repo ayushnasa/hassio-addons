@@ -63,8 +63,10 @@ if [[ -z $new_ip ]]; then
 #    exit 1
 fi
 
-new_ip=$(https://davidramosweb.com/miip.php)
+ip_curl="curl"
+new_ip=$($ip_curl https://davidramosweb.com/miip.php)
 echo >&2 "Warning: Used this IP"
+echo >&2 $new_ip
 
 # Compares with last IP address set, if any
 ip_file="/data/ip.dat"
