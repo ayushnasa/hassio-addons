@@ -34,14 +34,15 @@ fi
 while true  
 do
 
-echo "Current time: $(date "+%Y-%m-%d %H:%M:%S")"
-if [[ -z $IPV6 ]]; then
-    ip_curl="curl -4s"
-    record_type="A"
-else
+# Commenting some lines to force IPV6
+#echo "Current time: $(date "+%Y-%m-%d %H:%M:%S")"
+#if [[ -z $IPV6 ]]; then
+#    ip_curl="curl -4s"
+#    record_type="A"
+#else
     ip_curl="curl -6s"
     record_type="AAAA"
-fi
+#fi
 
 # Determines the current IP address
 new_ip=$($ip_curl https://davidramosweb.com/miip.php)
